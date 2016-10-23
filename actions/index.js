@@ -1,11 +1,17 @@
-import { ADD_TODO } from '../constants/index';
+import { ADD_TODO, DELETE_TODO } from '../constants/index';
 
 
-const addTodo = (text) => {
+export const addTodo = (text) => {
     return {
         type: ADD_TODO,
         text: text
     }
 }
 
-export default addTodo;
+export const deleteTodo = (id) => {
+    return {
+        type: DELETE_TODO,
+        todoID: todoID
+    }
+}
+

@@ -8,3 +8,8 @@
 .todo__list {
     text-align: center
 }
+
+.list-group{
+    width: 60%;
+    margin: auto;
+}

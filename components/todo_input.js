@@ -18,7 +18,7 @@ class TodoInput extends Component{
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.dispatch(addTodo(this.state.text));
+        this.props.actions.addTodo(this.state.text);
         this.setState({text: ''});
     }
 
@@ -35,12 +35,4 @@ class TodoInput extends Component{
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        data: state
-    }
-}
-
-
-
-export default connect(mapStateToProps)(TodoInput);
+export default TodoInput;

@@ -15,12 +15,12 @@ const store = createStore(
 
 
 
-import Header from './components/todo_header';
+import Wrapper from './components/todo_wrapper';
 
 
 render(
     <Provider store={store}>
-        <Header/>
+        <Wrapper />
     </Provider>,
     document.getElementById('app')
 );
