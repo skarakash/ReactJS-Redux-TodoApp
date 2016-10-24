@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../constants/index'
+import { ADD_TODO, DELETE_TODO } from '../constants/index'
 
 let todoID = 0;
 const INITIAL_STATE = [{
@@ -15,9 +15,15 @@ const todoApp = (state = INITIAL_STATE, action) => {
                     todoID:todoID++,
                     completed:false}, 
                         ...state ]
+        case DELETE_TODO:
+            return [ ...state,  state.filter((obj) => {
+                return obj.todoID !== action.todoID
+            })]                 
         default:
             return state;
     }
 }
 
 export default todoApp;
+
+
