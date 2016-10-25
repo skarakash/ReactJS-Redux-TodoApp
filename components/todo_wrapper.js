@@ -17,7 +17,7 @@ class Wrapper extends Component {
                 <div className="app_header">
                     <h1>TODO APP</h1>
                 </div>
-                 <TodoList data={this.props.data.todoList}/>
+                 <TodoList data={this.props.data.todoList} actions={this.props.actions}/>
                  <TodoInput actions={this.props.actions}/>
             </div>
         );

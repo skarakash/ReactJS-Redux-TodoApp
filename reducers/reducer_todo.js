@@ -7,7 +7,7 @@ const INITIAL_STATE = [{
     todoID: todoID++
 }]
 
-const todoApp = (state = INITIAL_STATE, action) => {
+const todoApp = (state = INITIAL_STATE, action, newstate) => {
     switch (action.type) {
         case ADD_TODO:
              return [{
@@ -16,9 +16,9 @@ const todoApp = (state = INITIAL_STATE, action) => {
                     completed:false}, 
                         ...state ]
         case DELETE_TODO:
-            return [ ...state,  state.filter((obj) => {
+            return newstate = state.filter((obj) => {
                 return obj.todoID !== action.todoID
-            })]                 
+            })                 
         default:
             return state;
     }

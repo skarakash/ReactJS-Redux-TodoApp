@@ -11,7 +11,7 @@ export const addTodo = (text) => {
 export const deleteTodo = (id) => {
     return {
         type: DELETE_TODO,
-        todoID: todoID
+        todoID: id
     }
 }
 

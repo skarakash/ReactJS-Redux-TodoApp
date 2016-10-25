@@ -5,9 +5,8 @@ class TodoList extends Component{
         super();
     }
 
-    handleClick(e){
-        e.preventDefault();
-        console.log(this.props)
+    handleClick(data){
+        this.props.actions.deleteTodo(data);
     }
 
     render(){
@@ -18,7 +17,7 @@ class TodoList extends Component{
                     {this.props.data.map((todo) => {
                         return (
                             <li className="list-group-item" key={todo.todoID}>
-                                <span className="badge" onClick={this.handleClick.bind(this)}>Delete</span>
+                                <span className="badge" data={todo} onClick={this.handleClick.bind(this, todo.todoID)}>Delete</span>
                                 {todo.text}
                             </li>)
                     })}

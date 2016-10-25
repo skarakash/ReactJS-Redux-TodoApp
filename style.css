@@ -13,3 +13,7 @@
     width: 60%;
     margin: auto;
 }
+
+.badge {
+    cursor: pointer;
+}
