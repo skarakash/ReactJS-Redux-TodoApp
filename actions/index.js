@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO } from '../constants/index';
+import { ADD_TODO, DELETE_TODO, COMPLETE_TODO } from '../constants/index';
 
 
 export const addTodo = (text) => {
@@ -15,3 +15,9 @@ export const deleteTodo = (id) => {
     }
 }
 
+export const completeTodo = (id) => {
+    return {
+        type: COMPLETE_TODO,
+        todoID: id
+    }
+}

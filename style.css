@@ -17,3 +17,15 @@
 .badge {
     cursor: pointer;
 }
+
+.btn-success {
+    margin-right: 5px;
+    display: inline-block;
+    width: 13%;
+}
+.list-group-item {
+    display: inline-block;
+    width: 70%;
+    margin-right: 5px;
+
+}

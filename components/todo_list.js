@@ -1,27 +1,21 @@
 import React, {Component} from 'react';
 
 class TodoList extends Component{
-    constructor(){
-        super();
-    }
-
-    handleClick(data){
-        this.props.actions.deleteTodo(data);
-    }
-
     render(){
-        return (
+         return (
             <div>
                 <div className="todo__list">TODO LIST</div>
-                <ul className="list-group">
-                    {this.props.data.map((todo) => {
-                        return (
-                            <li className="list-group-item" key={todo.todoID}>
-                                <span className="badge" data={todo} onClick={this.handleClick.bind(this, todo.todoID)}>Delete</span>
-                                {todo.text}
-                            </li>)
-                    })}
-                </ul>
+                    <div className="list-group">
+                        {this.props.data.map((todo)=> {
+                            return (
+                                <div key={todo.todoID}>
+                                    <span className="list-group-item">{todo.text}</span>
+                                    <button className="btn btn-success" onClick={() => this.props.actions.deleteTodo(todo.todoID) }>Delete</button>
+                                    <button className="btn btn-success" onClick={() => this.props.actions.completeTodo(todo.todoID)}>Complete</button>
+                                </div>
+                            );
+                        })}
+                    </div>
             </div>
         )
     }
