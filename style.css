@@ -27,5 +27,10 @@
     display: inline-block;
     width: 57%;
     margin-right: 5px;
+}
 
+.edit_input {
+    display: inline-block;
+    width: 57%;
+    margin-right: 5px;
 }
