@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, COMPLETE_TODO, EDIT_MODE } from '../constants/index'
+import { ADD_TODO, DELETE_TODO, COMPLETE_TODO, EDIT_MODE, SAVE_EDITED } from '../constants/index'
 
 
 let todoID = 0;
@@ -18,26 +18,38 @@ const todoApp = (state = INITIAL_STATE, action, newstate) => {
                     todoID: state.length = 0 ? todoID : state.length,
                     completed:false}, 
                         ...state ]
+
         case DELETE_TODO:
-            return newstate = state.filter((obj) => {
+            return newstate = state.filter(obj => {
                 return obj.todoID !== action.todoID
             }); 
+
         case COMPLETE_TODO:
-            return  newstate = state.map((obj)=> {
+            return  newstate = state.map(obj => {
                 if (obj.todoID == action.todoID) {
-                    return Object.assign({}, obj, obj.completed = !obj.completed)
+                    return Object.assign({}, obj, {completed: !obj.completed})
                 } else {
                     return obj
                 }
             });  
+
         case EDIT_MODE:
-            return newstate = state.map((obj)=> {
+            return newstate = state.map(obj => {
                 if(obj.todoID == action.todoID){
-                    return Object.assign({}, obj, obj.editMode = !obj.editMode)
+                    return Object.assign({}, obj, {editMode: true})
                 } else {
                     return obj
                 }
-            });        
+            });
+            
+        case SAVE_EDITED:
+            return newstate = state.map(obj => {
+                if (obj.todoID == action.todoID) {
+                    return Object.assign({}, obj, { editMode: false, text: action.text})
+                } else {
+                    return obj
+                }
+            })
         default:
             return state;
     }

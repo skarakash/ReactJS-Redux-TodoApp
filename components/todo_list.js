@@ -12,7 +12,7 @@ class TodoList extends Component{
                             return (
                                 <div key={todo.todoID}>
                                     <EditForm  todo={todo} actions={this.props.actions}/>
-                                    <div  style={{display: todo.editMode ? 'none': 'inlineBlock' }}>
+                                    <div  style={{display: todo.editMode ? 'none': 'block' }}>
                                         <span className="list-group-item"  style={{ textDecoration: todo.completed ? 'line-through': 'none' }} >{todo.text}</span>
                                         <button className="btn btn-success" onClick={() => this.props.actions.deleteTodo(todo.todoID)}>Delete</button>
                                         <button className="btn btn-success" onClick={() => this.props.actions.completeTodo(todo.todoID)}>{todo.completed ? 'Reopen': 'Complete'}</button>

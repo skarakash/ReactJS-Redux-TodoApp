@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, COMPLETE_TODO, EDIT_MODE } from '../constants/index';
+import { ADD_TODO, DELETE_TODO, COMPLETE_TODO, EDIT_MODE, SAVE_EDITED } from '../constants/index';
 
 
 export const addTodo = (text) => {
@@ -26,5 +26,13 @@ export const editMode = (id) => {
     return {
         type: EDIT_MODE,
         todoID: id
+    }
+}
+
+export const saveEdited = (id, text) => {
+    return {
+        type: SAVE_EDITED,
+        todoID: id,
+        text: text
     }
 }
