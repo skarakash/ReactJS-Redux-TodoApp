@@ -1,14 +1,9 @@
-import { ADD_TODO, DELETE_TODO, COMPLETE_TODO, EDIT_MODE, SAVE_EDITED } from '../constants/index'
+import { ADD_TODO, DELETE_TODO, COMPLETE_TODO, EDIT_MODE, SAVE_EDITED, CANCEL_EDIT } from '../constants/index'
 
 
 let todoID = 0;
-const INITIAL_STATE = [{
-    text: 'Create an ToDo List',
-    completed:true,
-    todoID: todoID,
-    editMode: false
-}]
 
+const INITIAL_STATE = [];
 
 const todoApp = (state = INITIAL_STATE, action, newstate) => {
     switch (action.type) {
@@ -41,12 +36,18 @@ const todoApp = (state = INITIAL_STATE, action, newstate) => {
                     return obj
                 }
             });
-            
+
         case SAVE_EDITED:
             return newstate = state.map(obj => {
                 if (obj.todoID == action.todoID) {
                     return Object.assign({}, obj, { editMode: false, text: action.text})
                 } else {
+                    return obj
+                }
+            })
+        case SAVE_EDITED:
+            return newstate = state.map(obj => {
+                if (obj.todoID == action.todoID) {
                     return obj
                 }
             })

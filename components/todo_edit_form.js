@@ -15,11 +15,14 @@ class EditForm extends Component{
         this.setState({
             text: e.target.value
         })
-        console.log(this.state.text)
     }
 
     handleSubmit(e){
+        e.preventDefault();
         const {todo} = this.props;
+        if (this.state.text == ''){
+            return;
+        }
         e.preventDefault();
         this.props.actions.saveEdited(todo.todoID, this.state.text);
      }
@@ -28,7 +31,8 @@ class EditForm extends Component{
          return (
             <form style={{display: todo.editMode ? 'block' : 'none'}} onSubmit={this.handleSubmit.bind(this)}>
                 <input type="text" className="form-control edit_input" defaultValue={todo.text} onChange={this.handleChange.bind(this)}/>
-                <button type="submit" className="btn btn-default">Save</button>
+                <button type="submit" className="btn btn-default save_button">Save</button>
+                <button type="submit" className="btn btn-default" onClick={() => this.props.actions.cancelEdit(todo.todoID)}>Cancel</button>
             </form>
         )
     }
