@@ -39,7 +39,7 @@ export const saveEdited = (id, text) => {
 
 export const cancelEdit = (id) => {
     return {
-        type: SAVE_EDITED,
+        type: CANCEL_EDIT,
         todoID: id
     }
 }

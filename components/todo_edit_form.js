@@ -32,7 +32,7 @@ class EditForm extends Component{
             <form style={{display: todo.editMode ? 'block' : 'none'}} onSubmit={this.handleSubmit.bind(this)}>
                 <input type="text" className="form-control edit_input" defaultValue={todo.text} onChange={this.handleChange.bind(this)}/>
                 <button type="submit" className="btn btn-default save_button">Save</button>
-                <button type="submit" className="btn btn-default" onClick={() => this.props.actions.cancelEdit(todo.todoID)}>Cancel</button>
+                <button  type="reset" className="btn btn-default" onClick={() => this.props.actions.cancelEdit(todo.todoID)}>Cancel</button>
             </form>
         )
     }

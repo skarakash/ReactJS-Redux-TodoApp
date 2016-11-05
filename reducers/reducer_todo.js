@@ -45,9 +45,11 @@ const todoApp = (state = INITIAL_STATE, action, newstate) => {
                     return obj
                 }
             })
-        case SAVE_EDITED:
+        case CANCEL_EDIT:
             return newstate = state.map(obj => {
                 if (obj.todoID == action.todoID) {
+                    return Object.assign({}, obj, { editMode: false })
+                } else {
                     return obj
                 }
             })
