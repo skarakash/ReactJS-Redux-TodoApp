@@ -4,7 +4,6 @@ import { ADD_TODO, DELETE_TODO, COMPLETE_TODO, EDIT_MODE, SAVE_EDITED, CANCEL_ED
 let todoID = 0;
 
 const INITIAL_STATE = [];
-
 const todoApp = (state = INITIAL_STATE, action, newstate) => {
     switch (action.type) {
         case ADD_TODO:

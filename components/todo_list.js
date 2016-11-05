@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import EditForm from './todo_edit_form'
+import TodoItem from './todo_item'
 
 class TodoList extends Component{
     render(){
@@ -8,16 +9,11 @@ class TodoList extends Component{
             <div>
                 <div className="todo__list">TODO LIST</div>
                     <div className="list-group">
-                        { data.map((todo)=> {
+                        { data.map( todo => {
                             return (
                                 <div key={todo.todoID}>
                                     <EditForm  todo={todo} actions={this.props.actions}/>
-                                    <div  style={{display: todo.editMode ? 'none': 'block' }}>
-                                        <span className="list-group-item"  style={{ textDecoration: todo.completed ? 'line-through': 'none' }} >{todo.text}</span>
-                                        <button className="btn btn-success" onClick={() => this.props.actions.deleteTodo(todo.todoID)}>Delete</button>
-                                        <button className="btn btn-success" onClick={() => this.props.actions.completeTodo(todo.todoID)}>{todo.completed ? 'Reopen': 'Complete'}</button>
-                                        <button className="btn btn-success" onClick={() => this.props.actions.editMode(todo.todoID)}>Edit</button>
-                                    </div>
+                                    <TodoItem  todo={todo} actions={this.props.actions}/>
                                 </div>
                             );
                         })}
