@@ -24,3 +24,6 @@ render(
     </Provider>,
     document.getElementById('app')
 );
+
+
+console.log(store.getState())

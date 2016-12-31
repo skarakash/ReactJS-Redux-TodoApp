@@ -12,12 +12,11 @@ class TodoList extends Component{
                         { data.map( todo => {
                             return (
                                 <div key={todo.todoID}>
-                                    <EditForm  todo={todo} actions={this.props.actions}/>
-                                    <TodoItem  todo={todo} actions={this.props.actions}/>
+                                    <EditForm  todo={todo} />
+                                    <TodoItem  todo={todo} />
                                 </div>
                             );
                         })}
-                        
                     </div>
             </div>
         )

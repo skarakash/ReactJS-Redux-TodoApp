@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import  addTodo  from '../actions/index';
+import  { addTodo }  from '../actions/index';
 
 class TodoInput extends Component{
     constructor(){
@@ -17,11 +17,12 @@ class TodoInput extends Component{
     }
 
     handleSubmit(e){
+        const { addItem } = this.props;
         e.preventDefault();
         if (this.state.text == ''){
             return;
         }
-        this.props.actions.addTodo(this.state.text);
+        addItem(this.state.text);
         this.setState({text: ''});
     }
 
@@ -38,4 +39,9 @@ class TodoInput extends Component{
     }
 }
 
-export default TodoInput;
+const mapDispatchToProps = dispatch => ({
+        addItem(text){
+            dispatch(addTodo(text))
+        }
+})
+export default connect(null, mapDispatchToProps)(TodoInput);
