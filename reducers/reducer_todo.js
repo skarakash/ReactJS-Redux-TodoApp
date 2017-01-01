@@ -1,15 +1,12 @@
 import { ADD_TODO, DELETE_TODO, COMPLETE_TODO, EDIT_MODE, SAVE_EDITED, CANCEL_EDIT } from '../constants/index'
+import { v4 } from 'node-uuid'
 
-
-let todoID = 0;
-
-const INITIAL_STATE = [];
-const todoApp = (state = INITIAL_STATE, action, newstate) => {
+const todoApp = (state = [], action, newstate) => {
     switch (action.type) {
         case ADD_TODO:
              return [{
-                    text: action.text, 
-                    todoID: state.length = 0 ? todoID : state.length,
+                    text: action.text,
+                    todoID: v4(),
                     completed:false}, 
                         ...state ]
 
